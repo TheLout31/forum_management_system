@@ -13,7 +13,7 @@ const ForumHomeScreen = () => {
         </View>
 
         <View style={styles.AskQuesCont}>
-          <AskYourQuestion />
+          <AskYourQuestion ButtonTitle="ask" placeholder="Ask your question here"/>
         </View>
       </View>
 

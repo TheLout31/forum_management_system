@@ -18,7 +18,7 @@ const CustomDropDown = ({data, onSelect, placeholder}) => {
       <TouchableOpacity
         style={styles.selectedItem}
         onPress={() => setShowOptions(!showOptions)}>
-        <View style={{flex: 1,bottom:6, right:10}}>
+        <View style={{flex: 1, bottom: 6, right: 10}}>
           <Text style={styles.selectedItemText}>
             {selectedItem ? selectedItem.label : placeholder}
           </Text>
@@ -91,8 +91,6 @@ const styles = StyleSheet.create({
     borderColor: '#cccccc',
     borderWidth: 1,
     borderRadius: 10,
-    zIndex: 1000,
-    
   },
   option: {
     padding: 10,

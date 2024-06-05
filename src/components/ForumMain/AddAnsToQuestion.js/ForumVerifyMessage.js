@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState} from 'react';
-import Colors from '../../utils/Colors';
+import Colors from '../../../utils/Colors';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const ForumReply = ({Report}) => {
+const ForumVerifyMessage = ({Report}) => {
   const [isClicked, setIsCliked] = useState(false);
   return (
     <View style={styles.mainContainer}>
@@ -20,7 +20,9 @@ const ForumReply = ({Report}) => {
           style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
           <Image
             style={styles.profileImg}
-            source={require('../../assets/Images/Profile.png')}
+            source={{
+              uri: 'https://amrutam.co.in/cdn/shop/products/WhyChooseAmrutam_28fb9011-5e3c-40d9-876e-14f74524b55d.jpg?v=1661579390&width=600',
+            }}
           />
           <View style={styles.nameContainer}>
             <Text style={styles.name}>Dr. Liam Mathews</Text>
@@ -47,7 +49,7 @@ const ForumReply = ({Report}) => {
           <TouchableOpacity style={[styles.miniBox]}>
             <Image
               style={[styles.boxImage, {height: 15, width: 10}]}
-              source={require('../../assets/Images/SaveImageLong.png')}
+              source={require('../../../assets/Images/SaveImageLong.png')}
             />
             <Text style={[styles.boxText, {marginRight: 10}]}>Save Answer</Text>
           </TouchableOpacity>
@@ -69,7 +71,7 @@ const ForumReply = ({Report}) => {
             ]}>
             <Image
               style={[styles.boxImage, {height: 15, width: 16}]}
-              source={require('../../assets/Images/Report.png')}
+              source={require('../../../assets/Images/Report.png')}
             />
 
             <Text style={[styles.boxText, {marginRight: 45}]}>Report</Text>
@@ -82,7 +84,7 @@ const ForumReply = ({Report}) => {
   );
 };
 
-export default ForumReply;
+export default ForumVerifyMessage;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -100,14 +102,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   profileImg: {
-    height: 41,
-    width: 41,
+    height: 36,
+    width: 36,
+    borderRadius: 36,
   },
   nameContainer: {
     marginLeft: 15,
   },
   name: {
-    fontSize: 16,
+    fontSize: 13,
     fontFamily: 'Nunito-Regular',
     color: '#3A643B',
     marginBottom: 2,
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
   days: {
     fontFamily: 'Nunito-Regular',
     fontWeight: '500',
-    fontSize: 14,
+    fontSize: 12,
     color: Colors.neutrals500,
   },
   answerBox: {
@@ -125,7 +128,8 @@ const styles = StyleSheet.create({
   },
   answerBoxText: {
     fontFamily: 'Nunito-Regular',
-    fontSize: 13,
+    fontSize: 11,
+    fontWeight: '500',
     color: '#000000',
   },
 

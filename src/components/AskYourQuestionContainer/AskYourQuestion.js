@@ -3,7 +3,7 @@ import {Alert, Image, StyleSheet, View} from 'react-native';
 import CustomInputText from '../constantComponents/CustomInputText';
 import GreenButton from '../constantComponents/GreenButton';
 
-const AskYourQuestion = () => {
+const AskYourQuestion = ({ButtonTitle, placeholder}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.avatarCont}>
@@ -16,12 +16,12 @@ const AskYourQuestion = () => {
       </View>
 
       <View style={styles.InputContainer}>
-        <CustomInputText placeholder="Add your Question here" />
+        <CustomInputText placeholder={placeholder} />
       </View>
 
       <View style={styles.ButtonCont}>
         <GreenButton
-          ButtonTitle="Ask"
+          ButtonTitle={ButtonTitle}
           onpress={() => alert('functionality not added')}
         />
       </View>

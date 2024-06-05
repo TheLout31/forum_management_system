@@ -64,6 +64,18 @@
     {
       "path": "src/assets/Fonts/Nunito-SemiBoldItalic.ttf",
       "sha1": "d930314ed16c54fd734f85d3d45f17d988254578"
+    },
+    {
+      "path": "src/assets/Fonts/Poppins-Medium.ttf",
+      "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
+    },
+    {
+      "path": "src/assets/Fonts/Poppins-Regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+    },
+    {
+      "path": "src/assets/Fonts/Poppins-SemiBold.ttf",
+      "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
     }
   ]
 }
