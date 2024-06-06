@@ -3,19 +3,14 @@ import {StyleSheet} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 
-import BottomTab from './src/navigations/BottomTabs/BottomTab';
-import ViewAllRepliesScreen from './src/screens/ViewAllRepliesScreen';
-import ScreenStack from './src/navigations/ScreenNavigation/ScreenStack';
+import ViewAllRepliesScreen from '../../screens/ViewAllRepliesScreen';
+
 
 const Stack = createNativeStackNavigator();
-const App = () => {
+const ScreenStack = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{headerShown: false}}
-        initialRouteName="Home">
-        <Stack.Screen name="Home" component={BottomTab} />
-
+      <Stack.Navigator>
         <Stack.Screen
           name="ViewAllScreen"
           component={ViewAllRepliesScreen}
@@ -31,4 +26,4 @@ const App = () => {
 
 const styles = StyleSheet.create({});
 
-export default App;
+export default ScreenStack;

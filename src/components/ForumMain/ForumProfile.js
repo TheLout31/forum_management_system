@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     color: Colors.neutrals500,
   },
   following: {
+    top: 4,
     fontFamily: 'Nunito-Regular',
     fontSize: 10,
   },

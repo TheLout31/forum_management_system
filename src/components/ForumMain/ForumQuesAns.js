@@ -16,33 +16,36 @@ import Share from './FavourCommentsShare/Share';
 import AddShowComments from './AddShowComments';
 import AddAnsToQuestion from './AddAnsToQuestion.js/AddAnsToQuestion';
 import VerifyContainer from './AddAnsToQuestion.js/VerifyContainer';
+import Colors from '../../utils/Colors';
 
 const ForumQuesAns = () => {
-  const [openComments, setOpenComments] = useState(false);
   const [openAddAnswer, setAddAnswer] = useState(false);
   const [ShowVerifyAns, setShowVerifyAns] = useState(false);
+  const [showAllReplies, setShowAllReplies] = useState(false);
+  const [activeCommentReplyId, setActiveCommentReplyId] = useState(null);
+
   const heightAnim = useRef(new Animated.Value(0)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.parallel([
       Animated.timing(heightAnim, {
-        toValue: openComments ? 1 : 0,
+        toValue: activeCommentReplyId ? 1 : 0,
         duration: 500,
         easing: Easing.ease,
         useNativeDriver: false,
       }),
       Animated.timing(opacityAnim, {
-        toValue: openComments ? 1 : 0,
+        toValue: activeCommentReplyId ? 1 : 0,
         duration: 500,
         easing: Easing.ease,
         useNativeDriver: true,
       }),
     ]).start();
-  }, [openComments]);
+  }, [activeCommentReplyId]);
 
-  const CommentClick = () => {
-    setOpenComments(!openComments);
+  const CommentClick = replyId => {
+    setActiveCommentReplyId(activeCommentReplyId === replyId ? null : replyId);
   };
 
   const AddAnswerClick = () => {
@@ -53,8 +56,15 @@ const ForumQuesAns = () => {
     setShowVerifyAns(!ShowVerifyAns);
   };
 
+  // const handleViewAllClick = () => {
+  //   navigation.navigate('ViewAllScreen');
+  // };
+
+  const replies = [{id: '1'}, {id: '2'}, {id: '3'}];
+  const visibleReplies = showAllReplies ? replies : replies.slice(0, 2);
+
   return (
-    <View style={{}}>
+    <View>
       <View>
         <ForumProfile AddAnswer={AddAnswerClick} />
       </View>
@@ -63,45 +73,55 @@ const ForumQuesAns = () => {
         <ForumQuestion />
       </View>
 
-      <View>
-        <ForumReply />
-      </View>
-
-      <View
-        style={{
-          alignItems: 'center',
-          marginTop: 15,
-          marginBottom: 10,
-        }}>
-        <View style={styles.plainLine}></View>
-      </View>
-
-      <View style={styles.CommentsShareFavourContainer}>
-        <TouchableOpacity>
-          <Favours />
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={CommentClick}>
-          <Comment />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Share />
-        </TouchableOpacity>
-      </View>
-
       {openAddAnswer ? (
         <View>
-          <AddAnsToQuestion showVerify={ShowVerifyAnsClick} />
+          <AddAnsToQuestion
+            showVerify={ShowVerifyAnsClick}
+            Cancel={AddAnswerClick}
+          />
         </View>
       ) : null}
 
-      {openComments ? (
-        <Animated.View
-          style={[styles.animatedContainer, {opacity: opacityAnim}]}>
-          <AddShowComments />
-        </Animated.View>
-      ) : null}
+      {visibleReplies.map(reply => (
+        <View key={reply.id}>
+          <ForumReply />
+
+          <View
+            style={{
+              alignItems: 'center',
+              marginTop: 15,
+              marginBottom: 10,
+            }}>
+            <View style={styles.plainLine}></View>
+          </View>
+
+          <View style={styles.CommentsShareFavourContainer}>
+            <TouchableOpacity>
+              <Favours />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => CommentClick(reply.id)}>
+              <Comment />
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <Share />
+            </TouchableOpacity>
+          </View>
+          {activeCommentReplyId === reply.id && (
+            <Animated.View
+              style={[styles.animatedContainer, {opacity: opacityAnim}]}>
+              <AddShowComments />
+            </Animated.View>
+          )}
+        </View>
+      ))}
+
+      {/* {replies.length > 2 && !showAllReplies && (
+        <TouchableOpacity onPress={()=>{navigation.navigate("ViewAllScreen")}}>
+          <Text style={styles.viewAllButton}>View All Replies</Text>
+        </TouchableOpacity>
+      )} */}
 
       {ShowVerifyAns ? (
         <View style={{width: 320}}>
@@ -129,6 +149,15 @@ const styles = StyleSheet.create({
 
   animatedContainer: {
     overflow: 'hidden',
+  },
+
+  viewAllButton: {
+    color: Colors.primary100,
+    textAlign: 'center',
+    marginVertical: 10,
+    fontSize: 14,
+    fontWeight: '600',
+    fontFamily: 'Nunito-Medium',
   },
 });
 

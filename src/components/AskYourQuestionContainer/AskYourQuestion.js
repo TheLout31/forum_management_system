@@ -1,7 +1,7 @@
 import React from 'react';
-import {Alert, Image, StyleSheet, View} from 'react-native';
-import CustomInputText from '../constantComponents/CustomInputText';
+import {Image, StyleSheet, View} from 'react-native';
 import GreenButton from '../constantComponents/GreenButton';
+import InputTextNoIcon from '../constantComponents/InputTextNoIcon';
 
 const AskYourQuestion = ({ButtonTitle, placeholder}) => {
   return (
@@ -16,7 +16,7 @@ const AskYourQuestion = ({ButtonTitle, placeholder}) => {
       </View>
 
       <View style={styles.InputContainer}>
-        <CustomInputText placeholder={placeholder} />
+        <InputTextNoIcon placeholder={placeholder} />
       </View>
 
       <View style={styles.ButtonCont}>

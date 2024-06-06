@@ -1,13 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Description from './Description';
 import CustomInputText from '../../constantComponents/CustomInputText';
 import GreenButton from '../../constantComponents/GreenButton';
 
-const AddAnsToQuestion = ({showVerify}) => {
+const AddAnsToQuestion = ({showVerify, Cancel}) => {
   return (
-    <View
-      style={{flexDirection: 'row', padding: 10}}>
+    <View style={{flexDirection: 'row', padding: 10}}>
       <View style={styles.avatarCont}>
         <Image
           style={styles.avatar}
@@ -25,18 +24,37 @@ const AddAnsToQuestion = ({showVerify}) => {
           <CustomInputText placeholder="Add attachment" />
         </View>
 
-        <View style={{width: 86, height: 39, marginTop: 15, left: 200}}>
-          <GreenButton ButtonTitle="Upload" onpress={showVerify}/>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            padding: 10,
+          }}>
+          <TouchableOpacity style={{flex: 0.2, left:100}} onPress={Cancel}>
+            <Text
+              style={{
+                fontFamily: 'Nunito-Medium',
+                fontWeight: '500',
+                fontSize: 12,
+              }}>
+              Cancel
+            </Text>
+          </TouchableOpacity>
+
+          <View style={{width: 86, height: 39, left: 150}}>
+            <GreenButton ButtonTitle="Upload" onpress={showVerify} />
+          </View>
         </View>
 
         <View
-        style={{
-          alignItems: 'center',
-          marginTop: 15,
-          marginBottom: 10,right:50
-        }}>
-        <View style={styles.plainLine}></View>
-      </View>
+          style={{
+            alignItems: 'center',
+            marginTop: 15,
+            marginBottom: 10,
+            right: 50,
+          }}>
+          <View style={styles.plainLine}></View>
+        </View>
       </View>
     </View>
   );

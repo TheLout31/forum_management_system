@@ -1,56 +1,42 @@
 import React from 'react';
 import {StyleSheet, View, TextInput, Text} from 'react-native';
+import Colors from '../../utils/Colors';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Description = () => {
+const InputTextNoIcon = ({placeholder}) => {
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.contentContainer}>
+      
         <TextInput
           style={styles.textInput}
-          placeholder="Add description"
+          placeholder={placeholder}
           placeholderTextColor="#7B7B7B"
-          multiline={true}
         />
-      </View>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: 293,
-    height: 178,
-    borderWidth: 1.5,
+    // width: 201,
+    height: 39,
+    borderWidth: 1,
     borderColor: '#D6D6D6',
-    borderRadius: 16,
+    borderRadius: 11,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 28,
-    
-  },
-  wordCount: {
-    color: '#B6B6B6',
-    fontSize: 10,
-    flex: 1,
-  },
-  contentContainer: {
-    width: 293,
-    alignItems:'center',
-    marginBottom: 5,
   },
   textInput: {
-    width: '90%',
-    height: '90%',
-    textAlignVertical: 'top',
-    textAlign: 'left',
+    height: '100%',
+    width: '100%',
+    paddingLeft: 14,
     color: 'black',
-
     fontSize: 12,
     fontFamily: 'Nunito-Regular',
     fontWeight: '400',
-    
   },
 });
 
-export default Description;
+export default InputTextNoIcon;

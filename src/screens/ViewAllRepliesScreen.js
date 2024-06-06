@@ -7,14 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import ForumHeader from '../components/ForumHeader/ForumHeader';
-import AskYourQuestion from '../components/AskYourQuestionContainer/AskYourQuestion';
 import ForumQuesAns from '../components/ForumMain/ForumQuesAns';
 import {useNavigation} from '@react-navigation/native';
+import AddAnsToQuestion from '../components/ForumMain/AddAnsToQuestion.js/AddAnsToQuestion';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
-const ForumHomeScreen = () => {
+const ViewAllRepliesScreen = () => {
   const navigation = useNavigation();
-  const Questions = [{id: '1'}, {id: '2'}, {id: '3'}];
+  const Questions = [{id: '1'}];
 
   return (
     <View style={styles.MainContainer}>
@@ -22,36 +22,33 @@ const ForumHomeScreen = () => {
         <View>
           <ForumHeader />
         </View>
-
-        <View style={styles.AskQuesCont}>
-          <AskYourQuestion
-            ButtonTitle="ask"
-            placeholder="Ask your question here"
-          />
-        </View>
+        <TouchableOpacity
+          style={styles.backButonCont}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <View style={{marginLeft: 20}}>
+            <Ionicons name="arrow-back" size={30} color="black" />
+          </View>
+        </TouchableOpacity>
       </View>
 
       <ScrollView
         style={styles.ScrollContainer}
-        contentContainerStyle={{paddingBottom: 20, backgroundColor:'white'}}>
+        contentContainerStyle={{paddingBottom: 20}}>
         {Questions.map(items => (
           <View key={items.id}>
             <View style={styles.QuestionContainer}>
               <View>
                 <ForumQuesAns />
               </View>
-
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate('ViewAllScreen');
-                }}>
-                <Text style={styles.viewAllButton}>View All Replies</Text>
-              </TouchableOpacity>
+              <View >
+                <AddAnsToQuestion />
+              </View>
             </View>
           </View>
         ))}
       </ScrollView>
-      
     </View>
   );
 };
@@ -88,6 +85,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontFamily: 'Nunito-Medium',
   },
+
+  backButonCont: {
+    position: 'absolute',
+    top: 30,
+  },
 });
 
-export default ForumHomeScreen;
+export default ViewAllRepliesScreen;
