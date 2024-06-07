@@ -117,11 +117,7 @@ const ForumQuesAns = () => {
         </View>
       ))}
 
-      {/* {replies.length > 2 && !showAllReplies && (
-        <TouchableOpacity onPress={()=>{navigation.navigate("ViewAllScreen")}}>
-          <Text style={styles.viewAllButton}>View All Replies</Text>
-        </TouchableOpacity>
-      )} */}
+     
 
       {ShowVerifyAns ? (
         <View style={{width: 320}}>

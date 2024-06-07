@@ -1,7 +1,8 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import GreenButton from '../constantComponents/GreenButton';
 import InputTextNoIcon from '../constantComponents/InputTextNoIcon';
+import CustomCategoryTextInput from '../constantComponents/CustomCategoryTextInput';
 
 const AskYourQuestion = ({ButtonTitle, placeholder}) => {
   return (
@@ -15,9 +16,9 @@ const AskYourQuestion = ({ButtonTitle, placeholder}) => {
         />
       </View>
 
-      <View style={styles.InputContainer}>
+      <TouchableOpacity style={styles.InputContainer}>
         <InputTextNoIcon placeholder={placeholder} />
-      </View>
+      </TouchableOpacity>
 
       <View style={styles.ButtonCont}>
         <GreenButton
@@ -25,6 +26,8 @@ const AskYourQuestion = ({ButtonTitle, placeholder}) => {
           onpress={() => alert('functionality not added')}
         />
       </View>
+
+      
     </View>
   );
 };

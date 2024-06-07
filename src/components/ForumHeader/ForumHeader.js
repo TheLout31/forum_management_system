@@ -29,12 +29,14 @@ const ForumHeader = () => {
         <View>
           <SearchTextInput />
         </View>
-        <View style={styles.dropDown}>
-          <CustomDropDown
-            data={data}
-            onSelect={handleSelect}
-            placeholder="Lifestyle"
-          />
+        <View style={{flex:1}}>
+          <View style={styles.dropDown}>
+            <CustomDropDown
+              data={data}
+              onSelect={handleSelect}
+              placeholder="Lifestyle"
+            />
+          </View>
         </View>
       </View>
     </View>

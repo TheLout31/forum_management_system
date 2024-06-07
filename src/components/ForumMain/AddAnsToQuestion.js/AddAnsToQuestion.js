@@ -16,7 +16,7 @@ const AddAnsToQuestion = ({showVerify, Cancel}) => {
         />
       </View>
       <View>
-        <View>
+        <View style={{width: 293, height: 157}}>
           <Description />
         </View>
 
@@ -30,7 +30,7 @@ const AddAnsToQuestion = ({showVerify, Cancel}) => {
             alignItems: 'center',
             padding: 10,
           }}>
-          <TouchableOpacity style={{flex: 0.2, left:100}} onPress={Cancel}>
+          <TouchableOpacity style={{flex: 0.2, left: 100}} onPress={Cancel}>
             <Text
               style={{
                 fontFamily: 'Nunito-Medium',

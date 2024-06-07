@@ -8,15 +8,19 @@ import Orders from '../../screens/BottomTabsScreens/Orders';
 import ForumHomeScreen from '../../screens/ForumHomeScreen';
 import ViewAllRepliesScreen from '../../screens/ViewAllRepliesScreen';
 
-
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        keyboardOptions: {
+          behavior: 'height',
+        },
+
         headerShown: false,
         tabBarStyle: {
+          
           borderTopLeftRadius: 29,
           borderTopRightRadius: 29,
           backgroundColor: 'white',

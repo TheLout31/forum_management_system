@@ -1,6 +1,13 @@
 // Dropdown.js
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  Modal,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../../utils/Colors';
 const CustomDropDown = ({data, onSelect, placeholder}) => {
@@ -87,6 +94,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     width: '100%',
+    height:70,
     backgroundColor: Colors.neutrals0,
     borderColor: '#cccccc',
     borderWidth: 1,

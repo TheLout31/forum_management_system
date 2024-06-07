@@ -1,18 +1,14 @@
 import React from 'react';
 import {StyleSheet, View, TextInput, Text} from 'react-native';
-import Colors from '../../utils/Colors';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const InputTextNoIcon = ({placeholder}) => {
   return (
     <View style={styles.mainContainer}>
-      
-        <TextInput
-          style={styles.textInput}
-          placeholder={placeholder}
-          placeholderTextColor="#7B7B7B"
-        />
-      
+      <TextInput
+        style={styles.textInput}
+        placeholder={placeholder}
+        placeholderTextColor="#7B7B7B"
+      />
     </View>
   );
 };

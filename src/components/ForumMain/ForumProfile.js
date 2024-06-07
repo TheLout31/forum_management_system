@@ -1,8 +1,6 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const ForumProfile = ({AddAnswer}) => {
   const [isClicked, setIsCliked] = useState(false);
@@ -136,6 +134,7 @@ const styles = StyleSheet.create({
   },
 
   floatingBox: {
+    flex: 1,
     width: 150,
     backgroundColor: '#FFFFFF',
     position: 'absolute',

@@ -18,15 +18,15 @@ const Description = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: 293,
-    height: 178,
+    width: "100%",
+    height: "100%",
     borderWidth: 1.5,
     borderColor: '#D6D6D6',
     borderRadius: 16,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 28,
+    // marginTop: 28,
     
   },
   wordCount: {
