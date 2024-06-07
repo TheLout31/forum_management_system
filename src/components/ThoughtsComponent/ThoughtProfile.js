@@ -2,14 +2,13 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 
-const ForumProfile = ({AddAnswer}) => {
+const ThoughtProfile = ({AddAnswer}) => {
   const [isClicked, setIsCliked] = useState(false);
 
   const OptionsCloseopen = () => {
     setIsCliked(!isClicked);
   };
 
-  
   return (
     <View style={styles.profileBox}>
       <View
@@ -18,13 +17,13 @@ const ForumProfile = ({AddAnswer}) => {
           <Image
             style={styles.profileImg}
             source={{
-              uri: 'https://i.pinimg.com/736x/ae/76/d8/ae76d87a15bf8d8421ef7811ae989aeb.jpg',
+              uri: 'https://images.pexels.com/photos/773371/pexels-photo-773371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             }}
           />
         </View>
 
         <View style={styles.nameContainer}>
-          <Text style={styles.name}>Anonymous</Text>
+          <Text style={styles.name}>Maruim Roy</Text>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Text style={styles.days}>5 days ago •</Text>
             <Text style={styles.following}> Following</Text>
@@ -93,7 +92,7 @@ const ForumProfile = ({AddAnswer}) => {
   );
 };
 
-export default ForumProfile;
+export default ThoughtProfile;
 
 const styles = StyleSheet.create({
   profileBox: {

@@ -3,19 +3,17 @@ import React from 'react';
 import Colors from '../../utils/Colors';
 import Feather from 'react-native-vector-icons/Feather';
 
-const ForumQuestion = ({index}) => {
+const Thoughts = ({index}) => {
   return (
     <View style={styles.mainContainer}>
-      <View style={{flexDirection: 'row'}}>
-        <View>
-          <Text style={styles.question}>
-            <Text style={styles.QuestionText}>Question :</Text>
-            Can Ayurveda help with stress and mental health issues?{' '}
-          </Text>
-        </View>
+      <View>
+        <Text style={styles.question}>
+          <Text style={styles.QuestionText}>Thought :</Text>
+          Can Ayurveda help with stress and mental health issues?{' '}
+        </Text>
       </View>
 
-      <View style={styles.subQuestionCont}>
+      {/* <View style={styles.subQuestionCont}>
         <Text style={styles.subQuestion}>
           I want to the benefits of Ayurvedic products
         </Text>
@@ -44,12 +42,12 @@ const ForumQuestion = ({index}) => {
         ) : (
           <Text style={styles.reply}> • 3 replies</Text>
         )}
-      </View>
+      </View> */}
     </View>
   );
 };
 
-export default ForumQuestion;
+export default Thoughts;
 
 const styles = StyleSheet.create({
   mainContainer: {

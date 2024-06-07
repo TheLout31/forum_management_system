@@ -16,12 +16,14 @@ import {useNavigation} from '@react-navigation/native';
 import AskModalContent from '../components/AskModalContent/AskModalContent';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import BottomSheetContent from '../components/BottomSheetContent/BottomSheetContent';
+import ToughtsQues from '../components/ThoughtsComponent/ToughtsQues';
 
 const ForumHomeScreen = () => {
   const [isContainerVisible, setIsContainerVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
   const Questions = [{id: '1'}, {id: '2'}, {id: '3'}];
+  const Thoughts = [{id: '1', attach:"Image"}, {id: '2',attach:"Doc"}];
   const refRBSheet = useRef();
 
   const openBottomSheet = () => {
@@ -59,6 +61,18 @@ const ForumHomeScreen = () => {
       <ScrollView
         style={styles.ScrollContainer}
         contentContainerStyle={{paddingBottom: 20, backgroundColor: 'white'}}>
+
+        {Thoughts.map(items => (
+          <View key={items.id}>
+            <View style={styles.QuestionContainer}>
+              <View>
+                <ToughtsQues Attachment={items.attach}/>
+              </View>
+
+            </View>
+          </View>
+        ))}
+
         {Questions.map(items => (
           <View key={items.id}>
             <View style={styles.QuestionContainer}>
@@ -104,7 +118,7 @@ const ForumHomeScreen = () => {
           enabled: true,
         }}>
         <View style={styles.bottomSheetcont}>
-         <BottomSheetContent/>
+          <BottomSheetContent />
         </View>
       </RBSheet>
     </View>
@@ -160,14 +174,14 @@ const styles = StyleSheet.create({
   },
 
   bottomSheetcont: {
-    flex:1,
-    width: "100%",
-    height: "100%",
+    flex: 1,
+    width: '100%',
+    height: '100%',
     // paddingRight: 10,
     // paddingLeft: 10,
     paddingTop: 10,
     paddingBottom: 20,
-    alignItems:'center'
+    alignItems: 'center',
   },
 });
 
