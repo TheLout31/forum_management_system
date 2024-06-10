@@ -23,7 +23,10 @@ const ForumHomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
   const Questions = [{id: '1'}, {id: '2'}, {id: '3'}];
-  const Thoughts = [{id: '1', attach:"Image"}, {id: '2',attach:"Doc"}];
+  const Thoughts = [
+    {id: '1', attach: 'Image'},
+    {id: '2', attach: 'Doc'},
+  ];
   const refRBSheet = useRef();
 
   const openBottomSheet = () => {
@@ -39,7 +42,6 @@ const ForumHomeScreen = () => {
       <View style={{}}>
         <View>
           <ForumHeader />
-          {/* <Button title='Open Bottom' onPress={openBottomSheet}/> */}
         </View>
 
         <TouchableOpacity
@@ -61,14 +63,15 @@ const ForumHomeScreen = () => {
       <ScrollView
         style={styles.ScrollContainer}
         contentContainerStyle={{paddingBottom: 20, backgroundColor: 'white'}}>
-
         {Thoughts.map(items => (
           <View key={items.id}>
             <View style={styles.QuestionContainer}>
               <View>
-                <ToughtsQues Attachment={items.attach}/>
+                <ToughtsQues
+                  Attachment={items.attach}
+                  report={openBottomSheet}
+                />
               </View>
-
             </View>
           </View>
         ))}
@@ -139,6 +142,7 @@ const styles = StyleSheet.create({
   },
 
   AskQuesCont: {
+    
     height: 70,
     paddingBottom: 15,
     marginTop: 10,

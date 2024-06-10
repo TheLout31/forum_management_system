@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import BottomTab from './src/navigations/BottomTabs/BottomTab';
 import ViewAllRepliesScreen from './src/screens/ViewAllRepliesScreen';
-import ScreenStack from './src/navigations/ScreenNavigation/ScreenStack';
+
 
 const Stack = createNativeStackNavigator();
 const App = () => {

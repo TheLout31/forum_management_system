@@ -13,36 +13,7 @@ const Thoughts = ({index}) => {
         </Text>
       </View>
 
-      {/* <View style={styles.subQuestionCont}>
-        <Text style={styles.subQuestion}>
-          I want to the benefits of Ayurvedic products
-        </Text>
-      </View>
-
-      <View style={styles.Properties}>
-        <View style={styles.edibleSign}>
-          <Text style={styles.edibleSignText}>General Ayurveda</Text>
-        </View>
-
-        <View style={styles.edibleSign}>
-          <Text style={styles.edibleSignText}>Basic of Ayurveda</Text>
-        </View>
-      </View>
-
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginTop: 10,
-        }}>
-        <Text style={styles.replies}>Replies</Text>
-        {index % 2 !== 0 ? (
-          <Text style={styles.reply}> • 1 reply</Text>
-        ) : (
-          <Text style={styles.reply}> • 3 replies</Text>
-        )}
-      </View> */}
+      
     </View>
   );
 };

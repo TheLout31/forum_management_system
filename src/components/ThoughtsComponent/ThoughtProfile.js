@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 
-const ThoughtProfile = ({AddAnswer}) => {
+const ThoughtProfile = ({AddAnswer,report}) => {
   const [isClicked, setIsCliked] = useState(false);
 
   const OptionsCloseopen = () => {
@@ -74,7 +74,9 @@ const ThoughtProfile = ({AddAnswer}) => {
             style={[
               styles.miniBox,
               {borderTopWidth: 1, borderTopColor: '#EDEDED'},
-            ]}>
+            ]}
+            onPress={report}
+            >
             <View style={styles.IconContainer}>
               <Image
                 style={[styles.boxImage, {height: 15, width: 16}]}

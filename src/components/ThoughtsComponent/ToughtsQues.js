@@ -14,12 +14,15 @@ import Comment from '../ForumMain/FavourCommentsShare/Comment';
 import Favours from '../ForumMain/FavourCommentsShare/Favours';
 import Share from '../ForumMain/FavourCommentsShare/Share';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AddShowComments from '../ForumMain/AddShowComments';
 
-const ToughtsQues = ({Attachment}) => {
+const ToughtsQues = ({Attachment, report}) => {
+  const [showComments, setShowComments] = useState(false);
+
   return (
     <View>
       <View>
-        <ThoughtProfile />
+        <ThoughtProfile report={report} />
       </View>
 
       <View>
@@ -59,7 +62,7 @@ const ToughtsQues = ({Attachment}) => {
           />
         </View>
       ) : (
-        <View style={styles.DocContainer}>
+        <TouchableOpacity style={styles.DocContainer}>
           <View style={styles.IconContainer}>
             <Ionicons name="document-text-outline" size={20} color="#3A643B" />
           </View>
@@ -70,7 +73,7 @@ const ToughtsQues = ({Attachment}) => {
               1.2 Mb <Text>pdf</Text>
             </Text>
           </View>
-        </View>
+        </TouchableOpacity>
       )}
 
       <View style={styles.Properties}>
@@ -97,7 +100,7 @@ const ToughtsQues = ({Attachment}) => {
           <Favours />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setShowComments(!showComments)}>
           <Comment />
         </TouchableOpacity>
 
@@ -105,6 +108,11 @@ const ToughtsQues = ({Attachment}) => {
           <Share />
         </TouchableOpacity>
       </View>
+      {showComments ? (
+        <View>
+          <AddShowComments />
+        </View>
+      ) : null}
     </View>
   );
 };
@@ -167,7 +175,6 @@ const styles = StyleSheet.create({
 
   DocProContainer: {
     marginLeft: 10,
-    
   },
 
   DocNameText: {

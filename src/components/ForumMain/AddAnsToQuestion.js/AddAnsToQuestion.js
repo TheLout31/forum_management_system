@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import Description from './Description';
 import CustomInputText from '../../constantComponents/CustomInputText';
 import GreenButton from '../../constantComponents/GreenButton';
+import Colors from '../../../utils/Colors';
 
 const AddAnsToQuestion = ({showVerify, Cancel}) => {
   return (
@@ -36,6 +37,7 @@ const AddAnsToQuestion = ({showVerify, Cancel}) => {
                 fontFamily: 'Nunito-Medium',
                 fontWeight: '500',
                 fontSize: 12,
+                color:Colors.primary100
               }}>
               Cancel
             </Text>
